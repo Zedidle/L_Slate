@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.ResourceSearch.cpp.obj": [
+			"ResourceSearch.cpp.obj",
+			"ResourceSearchCommands.cpp.obj",
+			"ResourceSearchStyle.cpp.obj"
+		]
+	}
+}
