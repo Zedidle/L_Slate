@@ -15,7 +15,6 @@ public:
 	: _GridPanelPtr()
 	{}
 
-	//SLATE_ATTRIBUTE(TSharedPtr<class SGridPanel>, GridPanelPtr)
 	SLATE_ARGUMENT(TWeakPtr<class SGridPanel>, GridPanelPtr)
 
 
@@ -31,7 +30,5 @@ public:
 
 private:
 	TWeakPtr<class SGridPanel> GridPanelPtr;
-	//TWeakPtr<class SGridPanel> GridPanelPtr;
-	//TAttribute<TSharedPtr<SGridPanel>> GridPanelPtr;
 
 };

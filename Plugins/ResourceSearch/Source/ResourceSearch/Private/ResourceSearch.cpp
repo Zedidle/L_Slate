@@ -161,24 +161,6 @@ TSharedRef<SDockTab> FResourceSearchModule::OnSpawnPluginTab(const FSpawnTabArgs
 			.HAlign(HAlign_Fill)
 			[
 				SAssignNew(GridPanelPtr, SGridPanel)
-				+ SGridPanel::Slot(0, 2)
-				.VAlign(VAlign_Fill)
-				.HAlign(HAlign_Fill)
-				[
-					SNew(SContentTileWidget)
-				]
-				+ SGridPanel::Slot(1, 2)
-				.VAlign(VAlign_Fill)
-				.HAlign(HAlign_Fill)
-				[
-					SNew(SContentTileWidget)
-				]
-				+ SGridPanel::Slot(8, 2)
-				.VAlign(VAlign_Fill)
-				.HAlign(HAlign_Fill)
-				[
-					SNew(SContentTileWidget)
-				]
 			]
 		]
 		+ SVerticalBox::Slot()
@@ -186,7 +168,7 @@ TSharedRef<SDockTab> FResourceSearchModule::OnSpawnPluginTab(const FSpawnTabArgs
 			.AutoHeight()
 			[
 				SNew(SEditorBoxWidget)
-				.GridPanelPtr(GridPanelPtr)
+				.GridPanelPtr(GridPanelPtr) // 时机只能放在 SAssignNew(GridPanelPtr, SGridPanel) 后面
 			]
 	];
 }

@@ -18,9 +18,18 @@ void SEditorBoxWidget::Construct(const FArguments& InArgs)
 		.Justification(ETextJustify::Center)
 		.OnTextChanged(this, &SEditorBoxWidget::OnFilterTextChanged)
 	];
+
+
+	// 指定目录
+
+
+
+
 }
 void SEditorBoxWidget::OnFilterTextChanged(const FText& SearchText)
 {
+	
+
 	if (GridPanelPtr.IsValid())
 	{
 		TSharedPtr<SGridPanel> GPtr = GridPanelPtr.Pin();
@@ -28,7 +37,7 @@ void SEditorBoxWidget::OnFilterTextChanged(const FText& SearchText)
 			.VAlign(VAlign_Fill)
 			.HAlign(HAlign_Fill)
 			[
-				SNew(SContentTileWidget)
+				SNew(SContentTileWidget) // 传入关键字以便搜索
 			];
 		++Num;
 	}
