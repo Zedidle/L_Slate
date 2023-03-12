@@ -6,12 +6,39 @@
 #include "Modules/ModuleManager.h"
 //#include "Editor/EditorWidgets/Public/SAssetSearchBox.h"
 #include "Widgets/DeclarativeSyntaxSupport.h"
+#include "Widgets/SUserWidget.h"
+
+#include "Misc/Attribute.h"
+#include "Styling/SlateColor.h"
+#include "Fonts/SlateFontInfo.h"
+#include "Input/CursorReply.h"
+#include "Input/Reply.h"
+#include "Layout/Visibility.h"
+#include "Widgets/DeclarativeSyntaxSupport.h"
+#include "Widgets/SWidget.h"
+#include "Styling/SlateTypes.h"
+#include "Styling/CoreStyle.h"
+#include "Styling/SlateWidgetStyleAsset.h"
+#include "Framework/SlateDelegates.h"
+#include "Framework/MultiBox/MultiBoxExtender.h"
+#include "Framework/Text/TextLayout.h"
+#include "Widgets/Text/ISlateEditableTextWidget.h"
+#include "Widgets/Input/SEditableText.h"
+#include "Framework/Text/PlainTextLayoutMarshaller.h"
+#include "Widgets/Text/SlateEditableTextLayout.h"
+#include "Types/ReflectionMetadata.h"
+#include "Types/TrackedMetaData.h"
 
 class FToolBarBuilder;
 class FMenuBuilder;
 //class SAssetSearchBox;
 
-class FResourceSearchModule : public IModuleInterface
+
+
+
+
+
+class FResourceSearchModule : public IModuleInterface, public TSharedFromThis<FResourceSearchModule>
 {
 public:
 
@@ -26,26 +53,27 @@ private:
 
 	void RegisterMenus();
 
-	TSharedRef<class SGridPanel> OnSpawnPluginTab(const class FSpawnTabArgs& SpawnTabArgs);
+	TSharedRef<class SDockTab> OnSpawnPluginTab(const class FSpawnTabArgs& SpawnTabArgs);
 
 	FReply TestClicked();
 
 
+	//TSharedPtr<SSearchBox> SearchBoxPtr;
+	void OnFilterTextChanged( const FText& SearchText );
+	//virtual void OnTextChanged(const FText& InText) override;
 
 
 private:
 	TSharedPtr<class FUICommandList> PluginCommands;
 
-	//TSharedPtr<SAssetSearchBox> SearchBoxPtr;
+	TSharedPtr<class SGridPanel> GridPanelPtr;
+	int Column = 5;
+	int Num = 0;
+	
 
-	TSharedPtr<SEditableText> EditableTextPtr;
-	TSharedPtr<STextBlock> TextBlockPtr;
+	//TSharedPtr<SAssetSearchBox> SearchBoxPtr;
+	//TSharedPtr<SEditableText> EditableTextPtr;
+	//TSharedPtr<STextBlock> TextBlockPtr;
 
 	FText GetSearchAssetsHintText() const;
-	//void OnSearchBoxChanged(const FText& InSearchText);
-	//void OnSearchBoxCommitted(const FText& InSearchText, ETextCommit::Type CommitInfo);
-	//FReply OnSearchKeyDown(const FGeometry& Geometry, const FKeyEvent& InKeyEvent);
-	//void OnAssetSearchSuggestionFilter(const FText& SearchText, TArray<FAssetSearchBoxSuggestion>& PossibleSuggestions, FText& SuggestionHighlightText) const;
-	//FText OnAssetSearchSuggestionChosen(const FText& SearchText, const FString& Suggestion) const;
-
 };

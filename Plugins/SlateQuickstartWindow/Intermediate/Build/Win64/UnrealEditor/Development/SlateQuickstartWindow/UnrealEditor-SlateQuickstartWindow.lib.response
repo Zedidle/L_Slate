@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-SlateQuickstartWindow.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\UE_Projects\L_Slate\Intermediate\Build\Win64\L_SlateEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h.obj"
+"E:\UE_Projects\L_Slate\Plugins\SlateQuickstartWindow\Intermediate\Build\Win64\UnrealEditor\Development\SlateQuickstartWindow\Module.SlateQuickstartWindow.cpp.obj"
+"E:\UE_Projects\L_Slate\Plugins\SlateQuickstartWindow\Intermediate\Build\Win64\UnrealEditor\Development\SlateQuickstartWindow\Default.rc2.res"
+/OUT:"E:\UE_Projects\L_Slate\Plugins\SlateQuickstartWindow\Intermediate\Build\Win64\UnrealEditor\Development\SlateQuickstartWindow\UnrealEditor-SlateQuickstartWindow.lib"

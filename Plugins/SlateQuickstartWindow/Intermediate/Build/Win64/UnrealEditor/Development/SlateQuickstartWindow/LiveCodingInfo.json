@@ -1,0 +1,12 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.SlateQuickstartWindow.cpp.obj": [
+			"SlateQuickstartWindow.cpp.obj",
+			"SlateQuickstartWindowCommands.cpp.obj",
+			"SlateQuickstartWindowStyle.cpp.obj",
+			"SMyCompoundWidget.cpp.obj",
+			"SQuickStartWindowMenu.cpp.obj"
+		]
+	}
+}
