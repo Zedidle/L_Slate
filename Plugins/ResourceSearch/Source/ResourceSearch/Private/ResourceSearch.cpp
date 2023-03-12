@@ -89,6 +89,7 @@
 #include "Types/ReflectionMetadata.h"
 #include "Types/TrackedMetaData.h"
 
+#include "SEditorBoxWidget.h"
 #include "SContentTileWidget.h"
 
 
@@ -147,18 +148,8 @@ TSharedRef<SDockTab> FResourceSearchModule::OnSpawnPluginTab(const FSpawnTabArgs
 		[
 			SNew(STextBlock)
 			.Text(LOCTEXT("资源检索", "资 源 检 索"))
-			//.Text(FText::FromString("资 源 检 索"))
-		
 		]
-		+ SVerticalBox::Slot()
-		.HAlign(HAlign_Center)
-		.AutoHeight()
-		[
-			SNew(SEditableText)
-			.Text(LOCTEXT("资源检索", "输入关键字")) 
-			//.Text(FText::FromString("输入资源关键字"))
-			.OnTextChanged(this, &FResourceSearchModule::OnFilterTextChanged)
-		]
+
 		+ SVerticalBox::Slot()
 			.VAlign(VAlign_Fill)
 			.HAlign(HAlign_Fill)
@@ -170,24 +161,6 @@ TSharedRef<SDockTab> FResourceSearchModule::OnSpawnPluginTab(const FSpawnTabArgs
 			.HAlign(HAlign_Fill)
 			[
 				SAssignNew(GridPanelPtr, SGridPanel)
-				+ SGridPanel::Slot(0, 0)
-				.VAlign(VAlign_Fill)
-				.HAlign(HAlign_Fill)
-				[
-					SNew(SButton)
-					.HAlign(HAlign_Fill)
-					.VAlign(VAlign_Fill)
-				]
-				+ SGridPanel::Slot(0, 1)
-				.VAlign(VAlign_Fill)
-				.HAlign(HAlign_Fill)
-				[
-					SNew(SButton)
-					.HAlign(HAlign_Fill)
-					.VAlign(VAlign_Fill)
-					.Text(FText::FromString("Press Me"))
-					.OnClicked(FOnClicked::CreateSP(this, &FResourceSearchModule::TestClicked)) // 为什么绑定成功了点击还是没有反应？？？
-				]
 				+ SGridPanel::Slot(0, 2)
 				.VAlign(VAlign_Fill)
 				.HAlign(HAlign_Fill)
@@ -208,171 +181,28 @@ TSharedRef<SDockTab> FResourceSearchModule::OnSpawnPluginTab(const FSpawnTabArgs
 				]
 			]
 		]
-
+		+ SVerticalBox::Slot()
+			.VAlign(VAlign_Center)
+			.AutoHeight()
+			[
+				SNew(SEditorBoxWidget)
+				.GridPanelPtr(GridPanelPtr)
+			]
 	];
-
-
-
-
-	// ======================
-
-
-
-	//SNew(SWrapBox)
-	//	.PreferredWidth(300.f)
-	//	+ SWrapBox::Slot()
-	//	.Padding(5)
-	//	.VAlign(VAlign_Top)
-	//	[
-	//		SNew(STextBlock)
-	//		.Text(LOCTEXT("资源检索", "资 源 检 索"))
-	//	]
-
-
-
-
-	//SNew(SCanvas)
-	//	+ SCanvas::Slot().VAlign(VAlign_Center)
-	//	+ SCanvas::Slot().HAlign(HAlign_Center)
-	//	[
-	//		SNew(SEditableText)
-	//		.Text(LOCTEXT("CreateLocalCollection", "Create Local Collection"))
-	//	]
-
-
-
-	//SAssignNew(SearchBoxPtr, SSearchBox)
-	//	.SelectAllTextWhenFocused(true)
-	//	.OnTextChanged(this, &FResourceSearchModule::OnFilterTextChanged); // 为什么因为这行编译不过？
-
-	//return SNew(SDockTab)
-	//[
-	//	//SNew(SButton)
-	//	//SAssignNew(SearchBoxPtr, SSearchBox)
-	//	//.SelectAllTextWhenFocused(true)
-	//	//.OnTextChanged(this, &FResourceSearchModule::OnFilterTextChanged) // 为什么因为这行编译过没效果？
-
-	//	SNew(SScrollBox)
-	//	+ SScrollBox::Slot().Padding(10, 5)
-	//	[
-	//		SNew(SHorizontalBox)
-	//		+ SHorizontalBox::Slot().HAlign(HAlign_Left)
-	//		[
-	//			SAssignNew(SearchBoxPtr, SSearchBox)
-	//			.OnTextChanged(this, &FResourceSearchModule::OnFilterTextChanged) // 为什么因为这行编译过没效果？
-	//		]
-	//		+ SHorizontalBox::Slot().HAlign(HAlign_Center)
-	//		[
-	//			SNew(SSearchBox)
-	//		]
-	//		+ SHorizontalBox::Slot().HAlign(HAlign_Right)
-	//		[
-	//			SNew(SSearchBox)
-	//		]
-	//	]
-	//	+ SScrollBox::Slot().Padding(10, 5)
-	//		[
-	//			SNew(SHorizontalBox)
-	//			+ SHorizontalBox::Slot().FillWidth(2)
-	//		[
-	//			SNew(SSearchBox)
-	//		]
-	//		+ SHorizontalBox::Slot().FillWidth(1)
-	//		[
-	//			SNew(SSearchBox)
-	//		]
-	//		+ SHorizontalBox::Slot().FillWidth(3)
-	//		[
-	//			SNew(SSearchBox)
-	//		]
-	//	]
-
-
-	//return SNew(SDockTab)
-	//[
-	//SNew(SUniformGridPanel)
-	//	.SlotPadding(FMargin(5.0f))
-	//	+ SUniformGridPanel::Slot(0, 0)
-	//	.HAlign(HAlign_Right)
-	//	[
-	//		SNew(SSearchBox)
-	//	]
-	//+ SUniformGridPanel::Slot(0, 1)
-	//	.HAlign(HAlign_Right)
-	//	[
-	//		SNew(SSearchBox)
-	//	]
-	//+ SUniformGridPanel::Slot(0, 2)
-	//	.HAlign(HAlign_Center)
-	//	[
-	//		SNew(SSearchBox)
-	//	]
-	//+ SUniformGridPanel::Slot(1, 0)
-	//	[
-	//		SNew(SSearchBox)
-	//	]
-	//+ SUniformGridPanel::Slot(1, 1)
-	//	[
-	//		SNew(SSearchBox)
-	//	]
-	//];
-
-	//return SNew(SDockTab)
-	//[
-	//	SNew(SWrapBox)
-	//	.PreferredWidth(300.f)
-	//	+ SWrapBox::Slot()
-	//	.Padding(5)
-	//	.VAlign(VAlign_Top)
-	//	[
-	//		SNew(SSearchBox)
-	//	]
-	//+ SWrapBox::Slot()
-	//	.Padding(5)
-	//	.VAlign(VAlign_Bottom)
-	//	[
-	//		SNew(SSearchBox)
-	//	]
-	//+ SWrapBox::Slot()
-	//	.Padding(FMargin(20, 5, 0, 5))
-	//	.VAlign(VAlign_Center)
-	//	[
-	//		SNew(SSearchBox)
-	//	]
-	//+ SWrapBox::Slot()
-	//	.Padding(0)
-	//	.VAlign(VAlign_Fill)
-	//	[
-	//		SNew(SSearchBox)
-	//	]
-	//];
-
 }
 
 FReply FResourceSearchModule::TestClicked()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Hello Button!"));
 	GridPanelPtr->AddSlot(Num / Column, Num % Column)
+	.VAlign(VAlign_Fill)
+	.HAlign(HAlign_Fill)
 	[
-		SNew(SImage)
-		.Image(CouldImage.Get())
+		SNew(SContentTileWidget)
 	];
 	++Num;
 	return FReply::Handled();
 }
-
-void FResourceSearchModule::OnFilterTextChanged(const FText& SearchText)
-{
-	UE_LOG(LogTemp, Log, TEXT("Hello OnFilterTextChanged!"));
-}
-
-
-
-FText FResourceSearchModule::GetSearchAssetsHintText() const
-{
-	return FText();
-}
-
 
 void FResourceSearchModule::PluginButtonClicked()
 {

@@ -28,17 +28,17 @@ void SContentTileWidget::Construct(const FArguments& InArgs)
 		.VAlign(VAlign_Fill)
 		[
 			SAssignNew(ImagePtr, SImage)
+			.Image(CouldImage.Get())
 			.ToolTipText(FText::FromString(IconPath))
 		]
-		+ SWrapBox::Slot()
-		.HAlign(HAlign_Left)
-		.VAlign(VAlign_Bottom)
-		[
-			SNew(SImage)
-			.Image(CouldImage.Get())
-			.RenderTransform(FTransform2D(FVector2D ( -ImageSize / 4, 0)))
-			//.Visibility_Lambda([this, IconPath]() { return EVisibility::Visible; })
-		]
+		//+ SWrapBox::Slot()
+		//.HAlign(HAlign_Left)
+		//.VAlign(VAlign_Bottom)
+		//[
+		//	SNew(SImage)
+		//	.Image(CouldImage.Get())
+		//	.RenderTransform(FTransform2D(FVector2D ( -ImageSize / 4, 0)))
+		//]
 	];
 }
 FReply SContentTileWidget::TestClicked()

@@ -29,7 +29,6 @@ public:
     FReply TestClicked();
 
 
-
     TSharedPtr<SSearchBox> IconSearchBox;
     TArray< TUniquePtr< FSlateBrush > > DynamicBrushes;
     TSharedRef<SWidget> ConstructIconsGallery()

@@ -1,0 +1,20 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\ue_projects\\l_slate\\plugins\\resourcesearch\\source\\resourcesearch\\private\\seditorboxwidget.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\ue_projects\\l_slate\\intermediate\\build\\win64\\l_slateeditor\\development\\unrealed\\sharedpch.unrealed.shadowerrors.h.pch",
+        "Includes": [
+            "e:\\ue_projects\\l_slate\\plugins\\resourcesearch\\intermediate\\build\\win64\\unrealeditor\\development\\resourcesearch\\definitions.resourcesearch.h",
+            "e:\\ue_projects\\l_slate\\plugins\\resourcesearch\\source\\resourcesearch\\public\\seditorboxwidget.h",
+            "e:\\ue\\ue_5.0\\engine\\source\\runtime\\slate\\public\\slateoptmacros.h",
+            "e:\\ue_projects\\l_slate\\plugins\\resourcesearch\\source\\resourcesearch\\public\\scontenttilewidget.h",
+            "e:\\ue\\ue_5.0\\engine\\source\\runtime\\slate\\public\\widgets\\layout\\sscrollbox.h",
+            "e:\\ue\\ue_5.0\\engine\\source\\runtime\\slate\\public\\widgets\\input\\ssearchbox.h",
+            "e:\\ue\\ue_5.0\\engine\\source\\runtime\\slatecore\\public\\brushes\\slateimagebrush.h",
+            "e:\\ue\\ue_5.0\\engine\\source\\runtime\\slate\\public\\widgets\\layout\\sgridpanel.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

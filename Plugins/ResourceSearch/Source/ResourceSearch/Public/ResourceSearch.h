@@ -48,6 +48,9 @@ public:
 	
 	/** This function will be bound to Command (by default it will bring up plugin window) */
 	void PluginButtonClicked();
+
+	FReply TestClicked();
+
 	
 private:
 
@@ -55,25 +58,15 @@ private:
 
 	TSharedRef<class SDockTab> OnSpawnPluginTab(const class FSpawnTabArgs& SpawnTabArgs);
 
-	FReply TestClicked();
-
-
-	//TSharedPtr<SSearchBox> SearchBoxPtr;
-	void OnFilterTextChanged( const FText& SearchText );
-	//virtual void OnTextChanged(const FText& InText) override;
 
 
 private:
 	TSharedPtr<class FUICommandList> PluginCommands;
 
+	TSharedPtr<class SEditableText> EditableTextPtr;
 	TSharedPtr<class SGridPanel> GridPanelPtr;
 	int Column = 5;
 	int Num = 0;
+
 	
-
-	//TSharedPtr<SAssetSearchBox> SearchBoxPtr;
-	//TSharedPtr<SEditableText> EditableTextPtr;
-	//TSharedPtr<STextBlock> TextBlockPtr;
-
-	FText GetSearchAssetsHintText() const;
 };

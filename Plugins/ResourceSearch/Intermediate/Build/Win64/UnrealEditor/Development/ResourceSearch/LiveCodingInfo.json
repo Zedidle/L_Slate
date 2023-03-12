@@ -5,7 +5,8 @@
 			"ResourceSearchCommands.cpp.obj",
 			"ResourceSearchStyle.cpp.obj",
 			"ResourceSearch.cpp.obj",
-			"SContentTileWidget.cpp.obj"
+			"SContentTileWidget.cpp.obj",
+			"SEditorBoxWidget.cpp.obj"
 		]
 	}
 }

@@ -76,6 +76,7 @@
             "e:\\ue\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\slatecore\\segmentedcontrolstyle.generated.h",
             "e:\\ue\\ue_5.0\\engine\\source\\runtime\\slate\\public\\widgets\\layout\\swrapbox.h",
             "e:\\ue\\ue_5.0\\engine\\source\\runtime\\slate\\public\\widgets\\scanvas.h",
+            "e:\\ue_projects\\l_slate\\plugins\\resourcesearch\\source\\resourcesearch\\public\\seditorboxwidget.h",
             "e:\\ue_projects\\l_slate\\plugins\\resourcesearch\\source\\resourcesearch\\public\\scontenttilewidget.h"
         ],
         "ImportedModules": [],
